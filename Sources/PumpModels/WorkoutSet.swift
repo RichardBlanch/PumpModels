@@ -13,4 +13,5 @@ public struct WorkoutSet: Codable {
     public let name: String
     public let description: String
     public let bodyPart: String
+    public var superSetID: UUID?
 }
