@@ -7,12 +7,12 @@
 
 import Foundation
 
-final class Superset: Codable {
-    var id: UUID?
-    var identifier: String!
-    var workoutSets: [WorkoutSet]?
+public final class Superset: Codable {
+    public var id: UUID?
+    public var identifier: String!
+    public var workoutSets: [WorkoutSet]?
 
-    init(identifier: String) {
+    public init(identifier: String) {
         self.identifier = identifier
     }
 }
