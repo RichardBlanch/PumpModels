@@ -9,7 +9,7 @@
 import Foundation
 
 public struct WorkoutSet: Codable {
-    public let id: UUID
+    public var id: UUID?
     public let name: String
     public let description: String
     public let bodyPart: String

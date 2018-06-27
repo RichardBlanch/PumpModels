@@ -9,8 +9,8 @@
 import Foundation
 
 public struct Workout: Codable {
-    public let id: UUID
-    public let name: String
-    public let curatorID: UUID
-    public let bodyPart: String
+    public var id: UUID?
+    public var name: String
+    public var curatorID: UUID
+    public var bodyPart: String
 }
