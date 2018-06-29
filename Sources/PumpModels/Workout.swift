@@ -13,4 +13,11 @@ public struct Workout: Codable {
     public var name: String
     public var curatorID: UUID
     public var bodyPart: String
+
+    public init(id: UUID, name: String, bodyPart: String, curatorID: UUID) {
+        self.id = id
+        self.name = name
+        self.bodyPart = bodyPart
+        self.curatorID = curatorID
+    }
 }
