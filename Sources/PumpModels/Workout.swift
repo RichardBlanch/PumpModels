@@ -29,6 +29,7 @@ public struct Workout: Codable {
         case name
         case curatorID
         case bodyPart
+        case sets
     }
 
     enum WorkoutPayloadCodingKeys: String, CodingKey {
@@ -36,7 +37,6 @@ public struct Workout: Codable {
         case name
         case curatorID
         case bodyPart
-        case sets
     }
 
     public init(from decoder: Decoder) throws {
@@ -47,7 +47,7 @@ public struct Workout: Codable {
             name = try workoutContainer.decode(String.self, forKey: WorkoutPayloadCodingKeys.name)
             bodyPart = try workoutContainer.decode(String.self, forKey: WorkoutPayloadCodingKeys.bodyPart)
             curatorID = try workoutContainer.decode(UUID.self, forKey: WorkoutPayloadCodingKeys.curatorID)
-            sets = try workoutContainer.decode([[WorkoutSet]].self, forKey: WorkoutPayloadCodingKeys.sets)
+            sets = try container.decode([[WorkoutSet]].self, forKey: CodingKeys.sets)
 
         } else {
             id = try container.decode(UUID.self, forKey: CodingKeys.id)
