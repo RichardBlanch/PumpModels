@@ -22,43 +22,4 @@ public struct Workout: Codable {
         self.curatorID = curatorID
         self.sets = []
     }
-
-    enum CodingKeys: String, CodingKey {
-        case workout
-        case id
-        case name
-        case curatorID
-        case bodyPart
-        case sets
-    }
-
-    enum WorkoutPayloadCodingKeys: String, CodingKey {
-        case id
-        case name
-        case curatorID
-        case bodyPart
-    }
-
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        if let workoutContainer = try? container.nestedContainer(keyedBy: WorkoutPayloadCodingKeys.self, forKey: .workout) {
-            id = try workoutContainer.decode(UUID.self, forKey: WorkoutPayloadCodingKeys.id)
-            name = try workoutContainer.decode(String.self, forKey: WorkoutPayloadCodingKeys.name)
-            bodyPart = try workoutContainer.decode(String.self, forKey: WorkoutPayloadCodingKeys.bodyPart)
-            curatorID = try workoutContainer.decode(UUID.self, forKey: WorkoutPayloadCodingKeys.curatorID)
-            sets = try container.decode([[WorkoutSet]].self, forKey: CodingKeys.sets)
-
-        } else {
-            id = try container.decode(UUID.self, forKey: CodingKeys.id)
-            name = try container.decode(String.self, forKey: CodingKeys.name)
-            bodyPart = try container.decode(String.self, forKey: CodingKeys.bodyPart)
-            curatorID = try container.decode(UUID.self, forKey: CodingKeys.curatorID)
-            sets = []
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        fatalError()
-    }
 }
