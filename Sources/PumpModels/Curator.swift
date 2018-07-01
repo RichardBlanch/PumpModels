@@ -9,6 +9,6 @@ import Foundation
 
 public struct Curator: Codable {
     public var id: UUID?
-    public let name: String!
-    public let image: String!
+    public var name: String!
+    public var image: String!
 }

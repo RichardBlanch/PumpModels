@@ -11,5 +11,5 @@ public struct User: Codable {
     public var id: UUID?
     public var name: String
     public var username: String
-    public var password: String
+    public var password: String?
 }

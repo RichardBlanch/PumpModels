@@ -10,8 +10,8 @@ import Foundation
 
 public struct WorkoutSet: Codable {
     public var id: UUID?
-    public let name: String
-    public let description: String
-    public let bodyPart: String
+    public var name: String
+    public var description: String
+    public var bodyPart: String
     public var superSetIdentification: UUID?
 }
