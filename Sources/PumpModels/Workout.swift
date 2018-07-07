@@ -13,13 +13,15 @@ public struct Workout: Codable {
     public var name: String
     public var curatorID: UUID
     public var bodyPart: String
+    public var imageURL: String
     public let sets: [[WorkoutSet]]?
 
-    public init(id: UUID, name: String, bodyPart: String, curatorID: UUID) {
+    public init(id: UUID, name: String, bodyPart: String, curatorID: UUID, imageURL: String) {
         self.id = id
         self.name = name
         self.bodyPart = bodyPart
         self.curatorID = curatorID
+        self.imageURL = imageURL
         self.sets = []
     }
 }
